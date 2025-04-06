@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -7,14 +8,12 @@ export default function Home() {
         <div>
           <h2>Log in to your account</h2>
           <div className={styles.ctas}>
-            <a
+            <Link
               className={styles.primary}
-              href='#'
-              target='_blank'
-              rel='noopener noreferrer'
+              href='/pos'
             >
               Log in
-            </a>
+            </Link>
           </div>
         </div>
       </main>

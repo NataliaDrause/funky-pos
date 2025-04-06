@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 26px;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.productsSection {
+  flex: 2;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #202020;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.cartSection {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cartList {
+  flex: 1;
+}
+
+.cartSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payButton, .clearCartButton {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.footer {
+  width: 100%;
+  height: 32px;
+  color: var(--background);
+  text-align: center;
+  padding: 10px;
+  background-color: #f1f1f1;
+  position: absolute;
+  bottom: 0;
+}
