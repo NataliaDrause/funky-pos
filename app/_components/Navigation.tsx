@@ -6,7 +6,9 @@ import { faGear, faHouse, faReceipt } from '@fortawesome/free-solid-svg-icons';
 function Navigation() {
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>Logo</div>
+      <div className={styles.logo}>
+        <p>Logo</p>
+      </div>
       <ul className={styles.navLinks}>
         <li>
           <Link href='/pos'>
