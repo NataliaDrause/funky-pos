@@ -2,12 +2,18 @@ import Link from 'next/link';
 import styles from './navigation.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear, faHouse, faReceipt } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 function Navigation() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <p>Logo</p>
+        <Image
+          src='/logo.png'
+          width={40}
+          height={40}
+          alt='Logo'
+        />
       </div>
       <ul className={styles.navLinks}>
         <li>
