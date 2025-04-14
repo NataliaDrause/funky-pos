@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import styles from './page.module.scss';
 
 interface Product {
@@ -6,6 +7,10 @@ interface Product {
   price: number;
   thumbnail: string;
 }
+
+export const metadata: Metadata = {
+  title: 'Point of Sale',
+};
 
 export default async function Home() {
   const res = await fetch('https://dummyjson.com/products');

@@ -1,4 +1,4 @@
-import Navigation from '../_components/Navigation';
+import Navigation from '@/app/_components/Navigation';
 import styles from './page.module.scss';
 
 function Layout({

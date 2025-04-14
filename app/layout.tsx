@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Funky POS',
-  description: 'Log in and get started',
+  title: {
+    template: '%s - Funky POS',
+    default: 'Funky POS',
+  },
+  description: 'Point of Sale system for Funky POS',
 };
 
 export default function RootLayout({
