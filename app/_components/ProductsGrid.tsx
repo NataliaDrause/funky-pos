@@ -1,14 +1,14 @@
+import { getProducts } from '../_api/data-service';
 import { Product } from '../_types/product';
 import ProductItem from './ProductItem';
 import styles from './productsGrid.module.scss';
 
 async function ProductsGrid() {
-  const res = await fetch('https://dummyjson.com/products');
-  const data = await res.json();
+  const products = await getProducts();
 
   return (
     <div className={styles.productsGrid}>
-      {data.products.map((product: Product) => (
+      {products.map((product: Product) => (
         <ProductItem
           key={product.id}
           product={product}
