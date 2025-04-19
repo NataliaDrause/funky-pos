@@ -4,3 +4,7 @@ export interface Product {
   regular_price: number;
   thumbnail: string;
 }
+
+export interface CartItem extends Product {
+  quantity: number;
+}

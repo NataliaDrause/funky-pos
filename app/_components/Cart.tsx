@@ -2,6 +2,7 @@
 
 import { useCart } from '@/app/_context/CartContext';
 import styles from './cart.module.scss';
+import { CartItem } from '@/app/_types/product';
 
 function Cart() {
   const {
@@ -15,7 +16,7 @@ function Cart() {
     <section className={styles.cartContainer}>
       <div className={styles.cartList}>
         {cart.length > 0 ? (
-          cart.map((item, index) => (
+          cart.map((item: CartItem, index) => (
             <div
               key={index}
               className={styles.cartItem}

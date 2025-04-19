@@ -1,15 +1,15 @@
 'use client';
 
 import React, { createContext, useContext, useState } from 'react';
-import { Product } from '@/app/_types/product';
+import { CartItem, Product } from '@/app/_types/product';
 
 type CartContextType = {
-  cart: Product[];
+  cart: CartItem[];
   addToCart: (product: Product) => void;
   clearCart: () => void;
-  increaseQuantity: (id: string) => void;
-  decreaseQuantity: (id: string) => void;
-  removeFromCart: (id: string) => void;
+  increaseQuantity: (id: number) => void;
+  decreaseQuantity: (id: number) => void;
+  removeFromCart: (id: number) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -19,7 +19,7 @@ type CartProviderProps = {
 };
 
 const CartProvider = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = useState<Product[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
@@ -40,7 +40,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
     setCart([]);
   };
 
-  const increaseQuantity = (id: string) => {
+  const increaseQuantity = (id: number) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -48,7 +48,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
     );
   };
 
-  const decreaseQuantity = (id: string) => {
+  const decreaseQuantity = (id: number) => {
     setCart(
       (prevCart) =>
         prevCart
@@ -61,7 +61,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
     );
   };
 
-  const removeFromCart = (id: string) => {
+  const removeFromCart = (id: number) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
