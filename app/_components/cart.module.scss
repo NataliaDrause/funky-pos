@@ -8,7 +8,80 @@
 }
 
 .cartList {
+  height: 100%; /* Set a maximum height for the cart list */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  padding: 10px; /* Optional: Add padding for better spacing */
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cartItemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cartItemDetails {
   flex: 1;
+  margin-right: 10px;
+}
+
+.cartItemTotal {
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.cartItemActions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantityButton {
+  padding: 5px 10px;
+  background-color: #636363;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #e60000;
+}
+
+.cartSummary {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.payButton,
+.clearCartButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.emptyCartMessage {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
 }
 
 .cartSummary {
