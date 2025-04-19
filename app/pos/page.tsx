@@ -2,7 +2,9 @@ import { Metadata } from 'next';
 import styles from './page.module.scss';
 import ProductsGrid from '../_components/ProductsGrid';
 import { Suspense } from 'react';
-import Spinner from '../_components/Spinner';
+import Spinner from '@/app/_components/Spinner';
+import Cart from '@/app/_components/Cart';
+import { CartProvider } from '../_context/CartContext';
 
 export const metadata: Metadata = {
   title: 'Point of Sale',
@@ -10,25 +12,20 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <div className={styles.posContainer}>
-      <section className={styles.productsSection}>
-        <input
-          type='text'
-          placeholder='Search products...'
-          className={styles.searchBar}
-        />
-        <Suspense fallback={<Spinner />}>
-          <ProductsGrid />
-        </Suspense>
-      </section>
-      <section className={styles.cartSection}>
-        <div className={styles.cartList}>{/* Cart items will go here */}</div>
-        <div className={styles.cartSummary}>
-          <button className={styles.payButton}>Pay with Cash</button>
-          <button className={styles.payButton}>Pay with Card</button>
-          <button className={styles.clearCartButton}>Clear Cart</button>
-        </div>
-      </section>
-    </div>
+    <CartProvider>
+      <div className={styles.posContainer}>
+        <section className={styles.productsSection}>
+          <input
+            type='text'
+            placeholder='Search products...'
+            className={styles.searchBar}
+          />
+          <Suspense fallback={<Spinner />}>
+            <ProductsGrid />
+          </Suspense>
+        </section>
+        <Cart />
+      </div>
+    </CartProvider>
   );
 }
