@@ -8,12 +8,13 @@ async function ProductsGrid() {
 
   return (
     <div className={styles.productsGrid}>
-      {products.map((product: Product) => (
-        <ProductItem
-          key={product.id}
-          product={product}
-        />
-      ))}
+      {products.length > 0 &&
+        products.map((product: Product) => (
+          <ProductItem
+            key={product.id}
+            product={product}
+          />
+        ))}
     </div>
   );
 }

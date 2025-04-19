@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import styles from './page.module.scss';
 import ProductsGrid from '../_components/ProductsGrid';
+import { Suspense } from 'react';
+import Spinner from '../_components/Spinner';
 
 export const metadata: Metadata = {
   title: 'Point of Sale',
@@ -15,7 +17,9 @@ export default async function Home() {
           placeholder='Search products...'
           className={styles.searchBar}
         />
-        <ProductsGrid />
+        <Suspense fallback={<Spinner />}>
+          <ProductsGrid />
+        </Suspense>
       </section>
       <section className={styles.cartSection}>
         <div className={styles.cartList}>{/* Cart items will go here */}</div>
