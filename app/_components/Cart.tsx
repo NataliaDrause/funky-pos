@@ -3,6 +3,7 @@
 import { useCart } from '@/app/_context/CartContext';
 import styles from './cart.module.scss';
 import { CartItem } from '@/app/_types/product';
+import Image from 'next/image';
 
 function Cart() {
   const {
@@ -21,11 +22,13 @@ function Cart() {
               key={index}
               className={styles.cartItem}
             >
-              <img
-                src={item.thumbnail}
-                alt={item.title}
-                className={styles.cartItemImage}
-              />
+              <div className={styles.cartItemImage}>
+                <Image
+                  fill
+                  src={item.thumbnail}
+                  alt={item.title}
+                />
+              </div>
               <div className={styles.cartItemDetails}>
                 <p className={styles.cartItemTitle}>{item.title}</p>
                 <p className={styles.cartItemPrice}>
