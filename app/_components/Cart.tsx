@@ -70,10 +70,7 @@ function Cart() {
         <div className={styles.totalSection}>
           <h3>Total: ${total.toFixed(2)}</h3>
         </div>
-        <PayContainer
-          total={total}
-          cart={cart}
-        />
+        <PayContainer />
         <button
           className={styles.clearCartButton}
           onClick={clearCart}

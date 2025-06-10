@@ -1,16 +1,13 @@
 import { createOrder } from '../_api/data-service';
-import { CartItem } from '../_types/product';
+import { useCart } from '../_context/CartContext';
 import styles from './pay.module.scss';
 
-interface PayContainerProps {
-  total: number;
-  cart: CartItem[];
-}
-
-function PayContainer({ total, cart }: PayContainerProps) {
+function PayContainer() {
+  const { clearCart, total, cart } = useCart();
   const handlePayment = async (method: 'cash' | 'card') => {
     try {
       await createOrder({ total, cart, method });
+      clearCart();
       alert('Order created successfully!');
     } catch (error) {
       console.error('Error creating order:', error);
