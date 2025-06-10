@@ -12,6 +12,7 @@ function Cart() {
     increaseQuantity,
     decreaseQuantity,
     removeFromCart,
+    total,
   } = useCart();
   return (
     <section className={styles.cartContainer}>
@@ -65,6 +66,9 @@ function Cart() {
         )}
       </div>
       <div className={styles.cartSummary}>
+        <div className={styles.totalSection}>
+          <h3>Total: ${total.toFixed(2)}</h3>
+        </div>
         <button className={styles.payButton}>Pay with Cash</button>
         <button className={styles.payButton}>Pay with Card</button>
         <button
