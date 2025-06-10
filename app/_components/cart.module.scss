@@ -72,13 +72,6 @@
   gap: 10px;
 }
 
-.payButton,
-.clearCartButton {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 .emptyCartMessage {
   text-align: center;
   font-size: 18px;
@@ -91,9 +84,10 @@
   align-items: center;
 }
 
-.payButton, .clearCartButton {
+.clearCartButton {
   width: 100%;
   padding: 10px;
+  font-size: 16px;
   margin: 5px 0;
   cursor: pointer;
 }

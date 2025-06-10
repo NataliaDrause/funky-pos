@@ -4,6 +4,7 @@ import { useCart } from '@/app/_context/CartContext';
 import styles from './cart.module.scss';
 import { CartItem } from '@/app/_types/product';
 import Image from 'next/image';
+import PayContainer from './PayContainer';
 
 function Cart() {
   const {
@@ -69,8 +70,7 @@ function Cart() {
         <div className={styles.totalSection}>
           <h3>Total: ${total.toFixed(2)}</h3>
         </div>
-        <button className={styles.payButton}>Pay with Cash</button>
-        <button className={styles.payButton}>Pay with Card</button>
+        <PayContainer />
         <button
           className={styles.clearCartButton}
           onClick={clearCart}
