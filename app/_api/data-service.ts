@@ -65,3 +65,20 @@ export async function createOrder({ total, cart, method }: CreateOrderParams) {
 
   return order;
 }
+
+export const getOrders = async function () {
+  const { data, error } = await supabase
+    .from('orders')
+    .select('id, total, total_paid, total_tax, status, created_at')
+    .order('created_at');
+
+  // await new Promise((resolve) => setTimeout(resolve, 5000)); // Simulate a delay
+
+  if (error) {
+    console.error(error);
+    throw new Error('Orders could not be loaded');
+  }
+
+  return data;
+};
+
