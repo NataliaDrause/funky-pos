@@ -1,3 +1,4 @@
+import { OrderItem } from '../_types/order';
 import { CreateOrderParams } from '../_types/product';
 import { supabase } from './supabase';
 
@@ -70,7 +71,7 @@ export const getOrders = async function () {
   const { data, error } = await supabase
     .from('orders')
     .select('id, total, total_paid, total_tax, status, created_at')
-    .order('created_at');
+    .order('created_at', { ascending: false });
 
   // await new Promise((resolve) => setTimeout(resolve, 5000)); // Simulate a delay
 
@@ -82,3 +83,51 @@ export const getOrders = async function () {
   return data;
 };
 
+export async function getOrderDetails(orderId: number) {
+  // Fetch order details
+  const { data: order, error: orderError } = await supabase
+    .from('orders')
+    .select('*')
+    .eq('id', orderId)
+    .single();
+
+  if (orderError) throw orderError;
+
+  // Fetch order items and join with product details
+  const { data: orderItems, error: orderItemsError } = await supabase
+    .from('order_items')
+    .select(
+      `
+      id,
+      product_id,
+      quantity,
+      unit_price,
+      unit_tax,
+      products (
+        id,
+        title,
+        regular_price
+      )
+    `
+    )
+    .eq('order_id', orderId);
+
+  if (orderItemsError) throw orderItemsError;
+
+  // Transform the data to match the expected structure
+  const products = orderItems.map((item) => ({
+    id: item.products.id,
+    name: item.products.title,
+    quantity: item.quantity,
+    regular_price: item.unit_price,
+  }));
+
+  // Combine order and products into a single object
+  return {
+    id: order.id,
+    total: order.total,
+    status: order.status,
+    created_at: order.created_at,
+    products,
+  };
+}

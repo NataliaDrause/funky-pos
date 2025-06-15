@@ -1,13 +1,20 @@
 import styles from './orders.module.scss';
 import { Order } from '../_types/order';
 
-export default async function OrdersList({ orders }: { orders: Order[] }) {
+export default function OrdersList({
+  orders,
+  onOrderClick,
+}: {
+  orders: Order[];
+  onOrderClick: (orderId: number) => void;
+}) {
   return (
     <div className={styles.ordersList}>
       {orders.map((order) => (
         <div
           key={order.id}
           className={styles.orderCard}
+          onClick={() => onOrderClick(order.id)}
         >
           <p>
             <strong>Order #</strong>
