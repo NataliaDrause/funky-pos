@@ -20,7 +20,7 @@ This project is a work in progress and is intended to demonstrate practical appl
 
 - **Framework:** [Next.js 15+](https://nextjs.org/)
 - **Frontend:** [React 19](https://react.dev/)
-- **Styling:** (TBD – Styling currently minimal or placeholder)
+- **Styling:** [Sass](https://sass-lang.com/) with CSS Modules (TBD – Styling currently minimal or placeholder)
 - **Other tools/libraries:** (Will be listed as they are added)
 
 ## 🚧 Work in Progress
