@@ -1,41 +1,48 @@
 .productCard {
-  border: 1px solid #ddd;
+  border: 1px solid var(--borders-dividers);
   border-radius: 8px;
   padding: 16px;
   text-align: center;
-  background-color: #fff;
+  background-color: var(--primary-background);
+  color: var(--body-text);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 200px; /* Fixed height for each card */
+  height: 200px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    background-color: var(--highlight-color);
+  }
 }
 
 .productImage {
   width: 100%;
-  height: 50%; /* Restrict image height to 50% of the card */
+  height: 50%;
   position: relative;
-  margin-bottom: 8px; /* Add spacing between the image and the title */
+  margin-bottom: 8px;
   img {
-    object-fit: cover; /* Ensure the image scales properly without distortion */
+    object-fit: cover;
     border-radius: 4px;
   }
 }
 
 .productTitle {
-  color: #333;
+  color: var(--header-text);
   font-size: 16px;
   margin: 8px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limit title to 2 lines */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
 }
 
 .productPrice {
   font-size: 16px;
-  color: #555;
-  margin-top: auto; /* Push the price to the bottom of the card */
+  color: var(--header-text);
+  margin-top: auto;
 }

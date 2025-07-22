@@ -5,12 +5,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: var(--primary-background);
+  border: 1px solid var(--borders-dividers);
 }
 
 .cartList {
-  height: 100%; /* Set a maximum height for the cart list */
-  overflow-y: auto; /* Enable vertical scrolling when content overflows */
-  padding: 10px; /* Optional: Add padding for better spacing */
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .cartItem {
@@ -18,7 +20,15 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  margin: 6px 0;
+  color: var(--body-text);
+  background-color: var(--middle-background);
+  border: 1px solid var(--borders-dividers);
+  border-radius: 4px;
+}
+
+.cartItem:last-child {
+  border-bottom: none;
 }
 
 .cartItemImage {

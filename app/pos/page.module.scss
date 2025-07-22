@@ -19,11 +19,16 @@
     flex: 2;
     padding: 20px;
     overflow-y: auto;
-    background-color: #202020;
+    background-color: var(--primary-background);
+
     .searchBar {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
+      background-color: var(--borders-dividers);
+      color: var(--body-text);
+      border: 1px solid var(--borders-dividers);
+      border-radius: 4px;
     }
   }
 }
@@ -31,10 +36,10 @@
 .footer {
   width: 100%;
   height: 32px;
-  color: var(--background);
+  color: var(--body-text);
   text-align: center;
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: var(--borders-dividers);
   position: absolute;
   bottom: 0;
   z-index: 100;

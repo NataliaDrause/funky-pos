@@ -1,14 +1,31 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color Scheme */
+  --primary-background: #FBF6ED; /* Creamy White */
+  --middle-background: #EDD9B9; /* Creamy White */
+  --secondary-background: #EBBB9E; /* Creamy White */
+  --primary-accent: #DEA23B; /* Vintage Orange */
+  --secondary-accent: #0F3B2E; /* Medium Aquamarine */
+  --third-accent: #903114; /* Medium Aquamarine */
+  --header-text: #242424; /* Charcoal */
+  --body-text: #3D3D3D; /* Warm Gray */
+  --button: #185D47;        /* Muted Buttery Orange */
+  --button-hover: #0F3B2E;  /* Slightly Darker for Hover */
+  --button-secondary: #B03B17;        /* Muted Buttery Orange */
+  --button-secondary-hover: #A23615;  /* Slightly Darker for Hover */
+  --borders-dividers: #E8E0D4; /* Dusty Beige */
+  --highlight-color: #DEA23B; /* Buttery Yellow */
+
+  /* Background and Foreground */
+  --background: var(--primary-background);
+  --foreground: var(--body-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #0a0a0a;
+//     --foreground: #ededed;
+//   }
+// }
 
 html,
 body {
@@ -24,6 +41,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-text);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -31,12 +52,35 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--primary-accent);
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  color: var(--secondary-accent);
 }
+
+button {
+  background-color: var(--button);
+  color: var(--primary-background);
+  border: 1px solid var(--borders-dividers);
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--borders-dividers);
+  margin: 20px 0;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }
