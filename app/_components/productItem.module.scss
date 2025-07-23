@@ -1,20 +1,18 @@
 .productCard {
-  border: 1px solid var(--borders-dividers);
   border-radius: 8px;
   padding: 16px;
   text-align: center;
-  background-color: var(--primary-background);
+  background-color: var(--secondary-background);
   color: var(--body-text);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 200px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: box-shadow 0.3s ease;
 
   &:hover {
-    transform: scale(1.02);
-    background-color: var(--highlight-color);
+    box-shadow: 0 4px 8px var(--shadow);
   }
 }
 

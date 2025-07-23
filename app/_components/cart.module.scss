@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--primary-background);
-  border: 1px solid var(--borders-dividers);
+  background-color: var(--secondary-background);
+  border: 1px solid var(--primary-background);
 }
 
 .cartList {
@@ -22,9 +22,10 @@
   padding: 10px;
   margin: 6px 0;
   color: var(--body-text);
-  background-color: var(--middle-background);
-  border: 1px solid var(--borders-dividers);
+  background-color: var(--primary-background);
+  border: 1px solid var(--primary-background);
   border-radius: 4px;
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .cartItem:last-child {
@@ -57,7 +58,6 @@
 
 .quantityButton {
   padding: 5px 10px;
-  background-color: #636363;
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
@@ -65,17 +65,16 @@
 
 .deleteButton {
   padding: 5px 10px;
-  background-color: #ff4d4d;
   color: white;
-  border: none;
+  background-color: var(--button-secondary);
+  border: 1px solid var(--button-secondary-hover);
   border-radius: 4px;
   cursor: pointer;
+  
+  &:hover {
+    background-color: var(--button-secondary-hover);
+  }
 }
-
-.deleteButton:hover {
-  background-color: #e60000;
-}
-
 .cartSummary {
   display: flex;
   justify-content: space-between;
@@ -100,4 +99,11 @@
   font-size: 16px;
   margin: 5px 0;
   cursor: pointer;
+  background-color: var(--button-secondary);
+  border: 1px solid var(--button-secondary-hover);
+  border-radius: 4px;
+
+  &:hover {
+    background-color: var(--button-secondary-hover);
+  }
 }

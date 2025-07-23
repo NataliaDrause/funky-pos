@@ -1,31 +1,23 @@
 :root {
   /* Color Scheme */
   --primary-background: #FBF6ED; /* Creamy White */
-  --middle-background: #EDD9B9; /* Creamy White */
-  --secondary-background: #EBBB9E; /* Creamy White */
-  --primary-accent: #DEA23B; /* Vintage Orange */
-  --secondary-accent: #0F3B2E; /* Medium Aquamarine */
-  --third-accent: #903114; /* Medium Aquamarine */
+  --secondary-background: #E8E0D4;  /* Dusty Beige */
+  --primary-accent: #ce922c; /* Vintage Orange */
+  --secondary-accent: #0F3B2E; /* Deep Green */
   --header-text: #242424; /* Charcoal */
   --body-text: #3D3D3D; /* Warm Gray */
-  --button: #185D47;        /* Muted Buttery Orange */
-  --button-hover: #0F3B2E;  /* Slightly Darker for Hover */
-  --button-secondary: #B03B17;        /* Muted Buttery Orange */
-  --button-secondary-hover: #A23615;  /* Slightly Darker for Hover */
-  --borders-dividers: #E8E0D4; /* Dusty Beige */
-  --highlight-color: #DEA23B; /* Buttery Yellow */
+  --text-invert: #FBF6ED; /* Creamy White */
+  --text-invert-hover: #E8E0D4; /* Dusty Beige */
+  --button: #185D47; /* Forest Green */
+  --button-hover: #0F3B2E;  /* Deep Green */
+  --button-secondary: #B03B17; /* Rusty Red */
+  --button-secondary-hover: #A23615;  /* Darker Rusty Red */
+  --shadow: rgba(0, 0, 0, 0.2); /* slight shadow */
 
   /* Background and Foreground */
   --background: var(--primary-background);
   --foreground: var(--body-text);
 }
-
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --background: #0a0a0a;
-//     --foreground: #ededed;
-//   }
-// }
 
 html,
 body {
@@ -63,7 +55,7 @@ a:hover {
 button {
   background-color: var(--button);
   color: var(--primary-background);
-  border: 1px solid var(--borders-dividers);
+  border: 1px solid var(--button-hover);
   padding: 10px 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -75,7 +67,7 @@ button:hover {
 
 hr {
   border: 0;
-  border-top: 1px solid var(--borders-dividers);
+  border-top: 1px solid var(--primary-background);
   margin: 20px 0;
 }
 

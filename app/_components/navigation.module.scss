@@ -44,12 +44,13 @@
     height: 26px;
     width: 26px;
     a {
-      color: var(--third-accent);
+      color: var(--text-invert);
       font-size: 24px;
       text-decoration: none;
       display: inline-flex;
+      transition: all 0.2s ease;
       &:hover {
-        color: var(--button-secondary-hover);
+        color: var(--text-invert-hover);
       }
       svg {
         margin-right: 10px;
