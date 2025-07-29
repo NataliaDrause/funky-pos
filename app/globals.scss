@@ -3,7 +3,6 @@
   --primary-background: #FBF6ED; /* Creamy White */
   --secondary-background: #E8E0D4;  /* Dusty Beige */
   --primary-accent: #ce922c; /* Vintage Orange */
-  --secondary-accent: #0F3B2E; /* Deep Green */
   --header-text: #242424; /* Charcoal */
   --body-text: #3D3D3D; /* Warm Gray */
   --text-invert: #FBF6ED; /* Creamy White */
@@ -46,10 +45,6 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: var(--primary-accent);
   text-decoration: none;
-}
-
-a:hover {
-  color: var(--secondary-accent);
 }
 
 button {
