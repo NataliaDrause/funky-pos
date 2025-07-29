@@ -17,8 +17,8 @@
 
 .orderCard {
   color: var(--body-text);
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: var(--light-background);
+  border: 1px solid var(--secondary-background);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -28,5 +28,68 @@
 
 .orderDetails {
   flex: 2;
-  color:#ddd;
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid var(--secondary-background);
+  border-radius: 8px;
+  background-color: var(--light-background);
+}
+
+.orderHeader {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: var(--header-text);
+}
+
+.orderInfo {
+  margin-bottom: 20px;
+}
+
+.orderTotal,
+.orderStatus,
+.orderCreatedAt {
+  line-height: 1.5;
+  font-size: 16px;
+  color: var(--body-text);
+}
+
+.productsHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--header-text);
+}
+
+.productsList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.orderItem {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #444;
+}
+
+.orderItem:last-child {
+  border-bottom: none;
+}
+
+.productName {
+  font-weight: bold;
+  color: #000;
+}
+
+.productQuantity {
+  margin-left: 8px;
+  color: #666;
+}
+
+.productPrice {
+  margin-left: 8px;
+  color: #007bff;
+  font-weight: bold;
 }
