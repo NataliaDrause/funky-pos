@@ -34,11 +34,11 @@ function Cart() {
               <div className={styles.cartItemDetails}>
                 <p className={styles.cartItemTitle}>{item.title}</p>
                 <p className={styles.cartItemPrice}>
-                  {item.regular_price.toFixed(2)} x {item.quantity}
+                  ${item.regular_price.toFixed(2)} x {item.quantity}
                 </p>
               </div>
               <div className={styles.cartItemTotal}>
-                <p>{(item.regular_price * item.quantity).toFixed(2)}</p>
+                <p>${(item.regular_price * item.quantity).toFixed(2)}</p>
               </div>
               <div className={styles.cartItemActions}>
                 <button
