@@ -9,8 +9,8 @@
     width: 60px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 8px solid var(--header-text);
-    border-right-color: var(--secondary-accent);
+    border: 8px solid var(--primary-accent);
+    border-right-color: var(--body-text);
     animation: rotate 1s infinite linear;
   }
 }
