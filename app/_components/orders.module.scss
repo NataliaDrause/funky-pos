@@ -6,7 +6,7 @@
 } 
 
 .ordersTableWrapper {
-  flex: 1;
+  flex: 2;
   margin: 20px 0;
   border: 1px solid var(--secondary-background);
   border-radius: 8px;
@@ -53,6 +53,9 @@
 .orderContainer {
   flex: 1;
   margin: 20px 0;
+  .placeholder {
+    padding-top: 20px;
+  }
 }
 
 .orderDetails {
@@ -60,6 +63,12 @@
   border: 1px solid var(--secondary-background);
   border-radius: 8px;
   background-color: var(--light-background);
+
+  p {
+    line-height: 1.5;
+    font-size: 16px;
+    color: var(--body-text);
+  }
 }
 
 .orderHeader {
@@ -73,14 +82,6 @@
   margin-bottom: 20px;
 }
 
-.orderTotal,
-.orderStatus,
-.orderCreatedAt {
-  line-height: 1.5;
-  font-size: 16px;
-  color: var(--body-text);
-}
-
 .productsHeader {
   font-size: 20px;
   font-weight: bold;
@@ -91,32 +92,38 @@
 .productsList {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 1rem 0;
 }
 
 .orderItem {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-  color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: .4rem 0;
+  .productTitle {
+    font-weight: 500;
+  }
+  .productPrice {
+    font-size: .9rem;
+  }
+  .productTotal {
+    font-weight: 600;
+    color: var(--primary-accent);
+  }
 }
 
-.orderItem:last-child {
-  border-bottom: none;
-}
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 2rem;
+  border-top: 1px solid var(--secondary-background);
+  padding: 1rem 0;
 
-.productName {
-  font-weight: bold;
-  color: #000;
-}
-
-.productQuantity {
-  margin-left: 8px;
-  color: #666;
-}
-
-.productPrice {
-  margin-left: 8px;
-  color: #007bff;
-  font-weight: bold;
+  p {
+    font-size: 1.2rem;
+  }
+  .totalTxt {
+    font-weight: 500;
+  }
 }

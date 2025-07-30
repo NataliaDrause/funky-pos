@@ -26,7 +26,7 @@ function OrdersContainer({ orders }: { orders: Order[] }) {
         {selectedOrder ? (
           <OrderDetails order={selectedOrder} />
         ) : (
-          <p>Select an order to view details</p>
+          <p className={styles.placeholder}>Select an order to view details</p>
         )}
       </div>
     </div>

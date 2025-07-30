@@ -6,14 +6,8 @@ export default function OrderDetails({ order }: { order: OrderFull }) {
     <div className={styles.orderDetails}>
       <h2 className={styles.orderHeader}>Order #{order.id}</h2>
       <div className={styles.orderInfo}>
-        <p className={styles.orderTotal}>
-          <strong>Total:</strong> ${order.total.toFixed(2)}
-        </p>
         <p>
-          <strong className={styles.orderStatus}>Status:</strong> {order.status}
-        </p>
-        <p>
-          <strong className={styles.orderCreatedAt}>Created At:</strong>{' '}
+          <strong>Created At:</strong>{' '}
           {new Date(order.created_at).toLocaleDateString('en-US', {
             weekday: 'short',
             month: 'short',
@@ -26,27 +20,39 @@ export default function OrderDetails({ order }: { order: OrderFull }) {
             minute: '2-digit',
           })}
         </p>
+        <p>
+          <strong>Status:</strong> {order.status}
+        </p>
       </div>
-      <h3 className={styles.productsHeader}>Products:</h3>
+      {/* <h3 className={styles.productsHeader}>Products:</h3> */}
       <ul className={styles.productsList}>
         {order.products.map((product) => (
           <li
             className={styles.orderItem}
             key={product.id}
           >
-            <span className={styles.productName}>{product.name}</span> -
-            <span className={styles.productQuantity}>
-              {' '}
-              Quantity: {product.quantity}
-            </span>
-            ,
-            <span className={styles.productPrice}>
-              {' '}
-              Price: ${product.regular_price.toFixed(2)}
-            </span>
+            <div className={styles.productDetails}>
+              <p className={styles.productTitle}>{product.name}</p>
+              <p className={styles.productPrice}>
+                ${product.regular_price.toFixed(2)} x {product.quantity}
+              </p>
+            </div>
+            <div className={styles.productTotal}>
+              <p>${(product.regular_price * product.quantity).toFixed(2)}</p>
+            </div>
           </li>
         ))}
       </ul>
+      <div className={styles.total}>
+        <div>
+          <p className={styles.totalTxt}>Total:</p>
+        </div>
+        <div>
+          <p>
+            <strong>${order.total.toFixed(2)}</strong>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
