@@ -1,10 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { Order, OrderFull } from '../_types/order';
 import styles from './orders.module.scss';
 import OrderDetails from './OrderDetails';
 import OrdersList from './OrdersList';
-import { useState } from 'react';
 import { getOrderDetails } from '../_api/data-service';
 
 function OrdersContainer({ orders }: { orders: Order[] }) {
@@ -19,9 +19,10 @@ function OrdersContainer({ orders }: { orders: Order[] }) {
       <OrdersList
         orders={orders}
         onOrderClick={handleOrderClick}
+        selectedOrderId={selectedOrder?.id || null}
       />
 
-      <div className={styles.orderDetails}>
+      <div className={styles.orderContainer}>
         {selectedOrder ? (
           <OrderDetails order={selectedOrder} />
         ) : (

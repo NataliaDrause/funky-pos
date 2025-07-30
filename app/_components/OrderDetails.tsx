@@ -3,7 +3,7 @@ import styles from './orders.module.scss';
 
 export default function OrderDetails({ order }: { order: OrderFull }) {
   return (
-    <>
+    <div className={styles.orderDetails}>
       <h2 className={styles.orderHeader}>Order #{order.id}</h2>
       <div className={styles.orderInfo}>
         <p className={styles.orderTotal}>
@@ -14,7 +14,17 @@ export default function OrderDetails({ order }: { order: OrderFull }) {
         </p>
         <p>
           <strong className={styles.orderCreatedAt}>Created At:</strong>{' '}
-          {new Date(order.created_at).toLocaleString()}
+          {new Date(order.created_at).toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric',
+          })}
+          ,{' '}
+          {new Date(order.created_at).toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+          })}
         </p>
       </div>
       <h3 className={styles.productsHeader}>Products:</h3>
@@ -37,6 +47,6 @@ export default function OrderDetails({ order }: { order: OrderFull }) {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
