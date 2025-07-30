@@ -1,4 +1,3 @@
-import { OrderItem } from '../_types/order';
 import { CreateOrderParams } from '../_types/product';
 import { supabase } from './supabase';
 
