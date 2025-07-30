@@ -16,11 +16,18 @@ function OrdersContainer({ orders }: { orders: Order[] }) {
   };
   return (
     <div className={styles.ordersContainer}>
-      <OrdersList
-        orders={orders}
-        onOrderClick={handleOrderClick}
-        selectedOrderId={selectedOrder?.id || null}
-      />
+      <div className={styles.ordersList}>
+        <input
+          type='text'
+          placeholder='Search orders...'
+          className={styles.searchBar}
+        />
+        <OrdersList
+          orders={orders}
+          onOrderClick={handleOrderClick}
+          selectedOrderId={selectedOrder?.id || null}
+        />
+      </div>
 
       <div className={styles.orderContainer}>
         {selectedOrder ? (

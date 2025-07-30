@@ -5,9 +5,21 @@
   color: var(--body-text);
 } 
 
-.ordersTableWrapper {
+.ordersList {
   flex: 2;
-  margin: 20px 0;
+  margin: 8px 0;
+  .searchBar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: var(--secondary-background);
+    color: var(--body-text);
+    border: 1px solid var(--secondary-background);
+    border-radius: 4px;
+  }
+}
+
+.ordersTableWrapper {
   border: 1px solid var(--secondary-background);
   border-radius: 8px;
   overflow: auto;
@@ -45,14 +57,12 @@
         background-color: var(--primary-accent-light);
       }
     }
-
-
   }
 }
 
 .orderContainer {
   flex: 1;
-  margin: 20px 0;
+  margin: 4rem 0;
   .placeholder {
     padding-top: 20px;
   }
