@@ -1,3 +1,5 @@
+import { PostgrestError } from '@supabase/supabase-js';
+import { OrderItem } from '../_types/order';
 import { CreateOrderParams } from '../_types/product';
 import { supabase } from './supabase';
 
@@ -93,7 +95,7 @@ export async function getOrderDetails(orderId: number) {
   if (orderError) throw orderError;
 
   // Fetch order items and join with product details
-  const { data: orderItems, error: orderItemsError } = await supabase
+  const { data: orderItems, error: orderItemsError } = (await supabase
     .from('order_items')
     .select(
       `
@@ -109,7 +111,10 @@ export async function getOrderDetails(orderId: number) {
       )
     `
     )
-    .eq('order_id', orderId);
+    .eq('order_id', orderId)) as unknown as {
+    data: OrderItem[];
+    error: PostgrestError | null;
+  };
 
   if (orderItemsError) throw orderItemsError;
 
