@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { supabase } from '../_api/supabase';
 import { useRouter } from 'next/navigation';
 import styles from './login.module.scss';
+import { login } from '../_api/auth-service';
 
 type LoginFormInputs = {
   email: string;
@@ -26,18 +26,14 @@ function LoginForm() {
     setLoading(true);
     setAuthError(null);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email: data.email,
-      password: data.password,
-    });
-
-    if (error) {
-      setAuthError(error.message);
-    } else {
+    try {
+      await login(data.email, data.password);
       router.push('/pos');
+    } catch (err) {
+      setAuthError((err as Error).message);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
