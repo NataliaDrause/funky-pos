@@ -1,5 +1,5 @@
 import { PostgrestError } from '@supabase/supabase-js';
-import { OrderItem } from '../_types/order';
+import { OrderFull, OrderItem } from '../_types/order';
 import { CreateOrderParams } from '../_types/product';
 import { supabase } from './supabase';
 
@@ -84,7 +84,7 @@ export const getOrders = async function () {
   return data;
 };
 
-export async function getOrderDetails(orderId: number) {
+export async function getOrderDetails(orderId: number): Promise<OrderFull> {
   // Fetch order details
   const { data: order, error: orderError } = await supabase
     .from('orders')
