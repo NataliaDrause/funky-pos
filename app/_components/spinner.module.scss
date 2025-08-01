@@ -10,7 +10,7 @@
     aspect-ratio: 1;
     border-radius: 50%;
     border: 8px solid var(--primary-accent);
-    border-right-color: var(--body-text);
+    border-right-color: var(--primary-accent-light);
     animation: rotate 1s infinite linear;
   }
 }
