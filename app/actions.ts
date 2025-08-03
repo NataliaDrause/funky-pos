@@ -2,8 +2,16 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { z } from 'zod';
 
 import { createClient } from '../utils/supabase/server';
+
+const loginSchema = z.object({
+  email: z.email({ message: 'Invalid email address' }),
+  password: z
+    .string()
+    .min(6, { message: 'Password must be at least 6 characters' }),
+});
 
 export async function login(formData: FormData) {
   const supabase = await createClient();
@@ -15,7 +23,15 @@ export async function login(formData: FormData) {
     password: formData.get('password') as string,
   };
 
-  const { error } = await supabase.auth.signInWithPassword(data);
+  const validatedFields = loginSchema.safeParse(data);
+
+  if (!validatedFields.success) {
+    redirect('/?error=Invalid credentials');
+  }
+
+  const { email, password } = validatedFields.data;
+
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
     redirect('/?error=Invalid credentials');
