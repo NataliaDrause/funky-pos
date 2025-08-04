@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import { createOrder } from '../_api/data-service';
 import { useCart } from '../_context/CartContext';
 import styles from './pay.module.scss';
@@ -8,13 +9,13 @@ function PayContainer() {
     try {
       await createOrder({ total, cart, method });
       clearCart();
-      alert('Order created successfully!');
+      toast.success('Order created successfully!');
     } catch (error) {
       console.error('Error creating order:', error);
       if (error instanceof Error) {
-        alert(error.message);
+        toast.error(error.message);
       } else {
-        alert('Failed to create order.');
+        toast.error('Failed to create order.');
       }
     }
   };
