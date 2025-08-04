@@ -11,7 +11,11 @@ function PayContainer() {
       alert('Order created successfully!');
     } catch (error) {
       console.error('Error creating order:', error);
-      alert('Failed to create order.');
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert('Failed to create order.');
+      }
     }
   };
 

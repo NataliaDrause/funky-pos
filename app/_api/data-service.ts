@@ -19,7 +19,28 @@ export const getProducts = async function () {
   return data;
 };
 
+// Set limit for demo purposes.
+export async function checkDailyOrderLimit(limit = 20) {
+  const startOfDay = new Date();
+  startOfDay.setHours(0, 0, 0, 0);
+
+  const { count, error } = await supabase
+    .from('orders')
+    .select('*', { count: 'exact', head: true })
+    .gte('created_at', startOfDay.toISOString());
+
+  if (error) throw error;
+
+  if ((count ?? 0) >= limit) {
+    throw new Error(`Daily order limit of ${limit} reached.`);
+  }
+}
+
 export async function createOrder({ total, cart, method }: CreateOrderParams) {
+
+  // Check if daily limit has been reached.
+  await checkDailyOrderLimit();
+
   const userId = 1; // Replace with actual user ID
   const customerId = 1; // Replace with actual customer ID
 
