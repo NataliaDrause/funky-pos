@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import styles from './navigation.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faHouse, faReceipt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGear,
+  faHouse,
+  faReceipt,
+  faRightFromBracket,
+} from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
+import { logout } from '../actions';
 
 function Navigation() {
   return (
@@ -33,6 +39,17 @@ function Navigation() {
             <FontAwesomeIcon icon={faGear} />
             <span className={styles.linkName}>Settings</span>
           </Link>
+        </li>
+        <li>
+          <form action={logout}>
+            <button
+              type='submit'
+              className={styles.logoutButton}
+            >
+              <FontAwesomeIcon icon={faRightFromBracket} />
+              <span className={styles.linkName}>Logout</span>
+            </button>
+          </form>
         </li>
       </ul>
     </nav>
