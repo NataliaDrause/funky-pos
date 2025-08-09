@@ -1,9 +1,12 @@
+'use server';
+
 import { PostgrestError } from '@supabase/supabase-js';
 import { OrderFull, OrderItem } from '../_types/order';
 import { CreateOrderParams } from '../_types/product';
-import { supabase } from './supabase';
+import { createClient } from '@/utils/supabase/server';
 
 export const getProducts = async function () {
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from('products')
     .select('id, title, regular_price, thumbnail')
@@ -23,7 +26,7 @@ export const getProducts = async function () {
 export async function checkDailyOrderLimit(limit = 20) {
   const startOfDay = new Date();
   startOfDay.setHours(0, 0, 0, 0);
-
+  const supabase = await createClient();
   const { count, error } = await supabase
     .from('orders')
     .select('*', { count: 'exact', head: true })
@@ -37,12 +40,13 @@ export async function checkDailyOrderLimit(limit = 20) {
 }
 
 export async function createOrder({ total, cart, method }: CreateOrderParams) {
-
   // Check if daily limit has been reached.
   await checkDailyOrderLimit();
 
   const userId = 1; // Replace with actual user ID
   const customerId = 1; // Replace with actual customer ID
+
+  const supabase = await createClient();
 
   // Insert into orders table
   const { data: order, error: orderError } = await supabase
@@ -90,6 +94,7 @@ export async function createOrder({ total, cart, method }: CreateOrderParams) {
 }
 
 export const getOrders = async function () {
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from('orders')
     .select('id, total, total_paid, total_tax, status, created_at')
@@ -107,6 +112,7 @@ export const getOrders = async function () {
 
 export async function getOrderDetails(orderId: number): Promise<OrderFull> {
   // Fetch order details
+  const supabase = await createClient();
   const { data: order, error: orderError } = await supabase
     .from('orders')
     .select('*')
