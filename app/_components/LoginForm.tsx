@@ -1,10 +1,12 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
+import { useFormStatus } from 'react-dom';
 import { login } from '../actions';
 import styles from './login.module.scss';
 
 function LoginForm() {
+  const { pending } = useFormStatus();
   const searchParams = useSearchParams();
   const error = searchParams.get('error');
   return (
@@ -35,8 +37,9 @@ function LoginForm() {
         <button
           formAction={login}
           className={styles.submitButton}
+          disabled={pending}
         >
-          Log in
+          {pending ? <span className={styles.inlineSpinner}></span> : 'Log in'}
         </button>
       </form>
     </div>
